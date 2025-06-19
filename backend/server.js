@@ -109,7 +109,7 @@ initProjectModel();
 initContactModel();
 
 // Prepare for Production
-if ("production"  === "production" || "production" !== "development") {
+if (process.env.NODE_ENV  === "production") {
     // set static folder
     app.use(express.static(path.join(__dirname, "/frontend/build")));
     // Any route that is not api will be redirected to index.html
@@ -121,11 +121,7 @@ if ("production"  === "production" || "production" !== "development") {
     })
 }
 
-// app.use(express.static(path.join(__dirname, "/frontend/build")));
-//      // Any route that is not api will be redirected to index.html
-//      app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html")));
-
-
+console.log(`Running in ${process.env.NODE_ENV} mode`);
 
 // Error Handler
 app.use(notFound);
