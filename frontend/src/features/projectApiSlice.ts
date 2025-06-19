@@ -1,5 +1,5 @@
 
-import {PROJECT_URL, UPLOADS_URL,} from "../urlconstants";
+import {PROJECT_URL, UPLOADS_URL,} from "../util/urlconstants";
 import {apiSlice} from "./apiSlice";
 
 // For Asynchronous request

@@ -1,6 +1,6 @@
 
 import {apiSlice} from "./apiSlice";
-import {CONTACTS_URL} from "../urlconstants";
+import {CONTACTS_URL} from "../util/urlconstants";
 
 
 export const contactApiSlice = apiSlice.injectEndpoints({
