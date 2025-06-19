@@ -109,7 +109,7 @@ initProjectModel();
 initContactModel();
 
 // Prepare for Production
-if (process.env.NODE_ENV  !== "development") {
+if (process.env.NODE_ENV  === "production" || process.env.NODE_ENV !== "development") {
     // set static folder
     app.use(express.static(path.join(__dirname, "/frontend/build")));
     // Any route that is not api will be redirected to index.html
