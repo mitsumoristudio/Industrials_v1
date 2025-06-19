@@ -109,17 +109,22 @@ initProjectModel();
 initContactModel();
 
 // Prepare for Production
-if (process.env.NODE_ENV  === "production") {
-    // set static folder
-    app.use(express.static(path.join(__dirname, "/frontend/build")));
-    // Any route that is not api will be redirected to index.html
-    app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html")));
+// if (process.env.NODE_ENV  !== "development") {
+//     // set static folder
+//     app.use(express.static(path.join(__dirname, "/frontend/build")));
+//     // Any route that is not api will be redirected to index.html
+//     app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html")));
+//
+// } else {
+//     app.get("/", (req, res) => {
+//         res.send("API is currently running on localhost...")
+//     })
+// }
 
-} else {
-    app.get("/", (req, res) => {
-        res.send("API is currently running on localhost...")
-    })
-}
+app.use(express.static(path.join(__dirname, "/frontend/build")));
+     // Any route that is not api will be redirected to index.html
+     app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html")));
+
 
 
 // Error Handler
