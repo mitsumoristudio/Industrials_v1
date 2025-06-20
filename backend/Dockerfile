@@ -2,23 +2,21 @@
 # Use Node.js base image
 FROM node:18
 
-# Setup working directory
+# Set working directory
 WORKDIR /app
 
-# Copy packages and install dependencies
-COPY package*.json ./
-# RUN npm install
-
+# Set env to avoid CI treating warnings as errors
 ENV CI=false
 
+# Install dependencies first (caches better)
+COPY package*.json ./
 RUN npm install
-RUN npm run dev
 
-# Copy backend code
+# Copy source code
 COPY . .
 
-# Expose backend port
+# Expose app port
 EXPOSE 5005
 
-# Start the server
+# Run the server
 CMD ["node", "server.js"]
