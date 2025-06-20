@@ -1,6 +1,5 @@
 
 
-
 export const BASE_URL = "";
 export const PROJECT_URL = "/api/projects";
 export const USERS_URL = "/api/users";
